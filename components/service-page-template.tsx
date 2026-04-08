@@ -1,7 +1,3 @@
-'use client'
-
-import { motion } from 'framer-motion'
-import { ArrowRight, BadgeCheck, Phone, ShieldCheck, Wrench } from 'lucide-react'
 import Link from 'next/link'
 import { siteConfig } from '@/lib/site'
 
@@ -11,16 +7,8 @@ type Props = {
   lead: string
   bullets: string[]
   price: string
-  path: string
-  serviceName: string
-  serviceDescription: string
   faq: Array<{ title: string; text: string }>
   cards: Array<{ title: string; text: string }>
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 }
 }
 
 export function ServicePageTemplate({
@@ -36,13 +24,7 @@ export function ServicePageTemplate({
     <main>
       <section className="page-hero hero">
         <div className="container">
-          <motion.div
-            className="hero__shell page-hero__inner"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="hero__shell page-hero__inner">
             <div className="eyebrow">{eyebrow}</div>
             <h1 className="page-hero__title">{title}</h1>
             <p className="page-hero__lead">{lead}</p>
@@ -50,7 +32,6 @@ export function ServicePageTemplate({
             <div className="hero-badges" style={{ marginTop: 24 }}>
               {bullets.map((item) => (
                 <div key={item} className="hero-badge">
-                  <BadgeCheck size={16} />
                   {item}
                 </div>
               ))}
@@ -58,7 +39,6 @@ export function ServicePageTemplate({
 
             <div className="hero-actions btn-row">
               <a className="btn-primary" href={siteConfig.phoneHref}>
-                <Phone size={18} />
                 Позвонить сейчас
               </a>
               <a
@@ -74,40 +54,23 @@ export function ServicePageTemplate({
             <p className="hero-note">
               Ориентир по стоимости: <span>{price}</span>
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section section-tight">
         <div className="container">
-          <motion.div
-            className="card dark-panel"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            transition={{ duration: 0.45 }}
-          >
+          <div className="card dark-panel">
             <div className="eyebrow">Что входит</div>
             <h2 className="section-title">Как мы подходим к задаче</h2>
 
             <div className="grid grid-3 section-cards">
-              {cards.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="soft-card service-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <span className="icon-box">
-                    <Wrench size={20} />
-                  </span>
+              {cards.map((item) => (
+                <div key={item.title} className="soft-card service-card">
+                  <span className="icon-box">→</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -123,41 +86,27 @@ export function ServicePageTemplate({
                   Вызвать мастера
                 </a>
                 <Link className="btn-secondary" href="/contacts">
-                  Оставить заявку <ArrowRight size={16} />
+                  Оставить заявку
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            transition={{ duration: 0.45 }}
-          >
+          <div>
             <div className="eyebrow">FAQ</div>
             <h2 className="section-title">Частые вопросы по услуге</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-2 section-cards">
-            {faq.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="card faq-card"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
+            {faq.map((item) => (
+              <div key={item.title} className="card faq-card">
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -165,14 +114,7 @@ export function ServicePageTemplate({
 
       <section className="section section-tight">
         <div className="container">
-          <motion.div
-            className="card cta-card"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={fadeUp}
-            transition={{ duration: 0.45 }}
-          >
+          <div className="card cta-card">
             <div className="eyebrow">Финальный CTA</div>
             <h2 className="section-title">Не тяните с проблемой отопления</h2>
             <p className="section-subtitle">
@@ -181,7 +123,6 @@ export function ServicePageTemplate({
             </p>
             <div className="btn-row" style={{ marginTop: 28 }}>
               <a className="btn-primary" href={siteConfig.phoneHref}>
-                <Phone size={18} />
                 Позвонить мастеру
               </a>
               <a
@@ -192,12 +133,9 @@ export function ServicePageTemplate({
               >
                 Написать в WhatsApp
               </a>
-              <div className="hero-badge">
-                <ShieldCheck size={16} />
-                Гарантия до 12 месяцев
-              </div>
+              <div className="hero-badge">Гарантия до 12 месяцев</div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </main>

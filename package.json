@@ -9,8 +9,6 @@
     "start": "node .next/standalone/server.js"
   },
   "dependencies": {
-    "framer-motion": "^11.18.2",
-    "lucide-react": "^0.511.0",
     "next": "^15.5.14",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"

@@ -26,7 +26,10 @@ export default function RemontKotlovPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ServicePageTemplate
         eyebrow="Ремонт котлов"
         title="Ремонт котлов в Москве и Московской области"
@@ -37,23 +40,6 @@ export default function RemontKotlovPage() {
           'Работаем без выходных'
         ]}
         price="от 1 500 ₽"
-        path="/remont-kotlov"
-        serviceName="Ремонт котлов"
-        serviceDescription="Ремонт бытовых и газовых котлов."
-        cards={[
-          {
-            title: 'Точная диагностика',
-            text: 'Сначала находим корень проблемы, а не просто меняем детали наугад.'
-          },
-          {
-            title: 'Ремонт на месте',
-            text: 'По возможности устраняем неисправность сразу в первый выезд.'
-          },
-          {
-            title: 'Проверка после ремонта',
-            text: 'Запускаем котёл, контролируем ошибки и убеждаемся в стабильной работе.'
-          }
-        ]}
         faq={[
           {
             title: 'Вы ремонтируете только газовые котлы?',
@@ -70,6 +56,20 @@ export default function RemontKotlovPage() {
           {
             title: 'Даете ли вы гарантию?',
             text: 'Да. Гарантия предоставляется на выполненные работы.'
+          }
+        ]}
+        cards={[
+          {
+            title: 'Точная диагностика',
+            text: 'Сначала находим корень проблемы, а не просто меняем детали наугад.'
+          },
+          {
+            title: 'Ремонт на месте',
+            text: 'По возможности устраняем неисправность сразу в первый выезд.'
+          },
+          {
+            title: 'Проверка после ремонта',
+            text: 'Запускаем котёл, контролируем ошибки и убеждаемся в стабильной работе.'
           }
         ]}
       />

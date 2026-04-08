@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Монтаж отопления',
-    description:
-      'Системы отопления и водоснабжения для дома, коттеджа и дачи.',
+    description: 'Системы отопления и водоснабжения для дома, коттеджа и дачи.',
     url: `${siteConfig.domain}/montazh-otopleniya`
   }
 }
@@ -26,7 +25,10 @@ export default function MontazhOtopleniyaPage() {
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ServicePageTemplate
         eyebrow="Монтаж отопления"
         title="Монтаж и модернизация систем отопления"
@@ -37,23 +39,6 @@ export default function MontazhOtopleniyaPage() {
           'Проверка и запуск'
         ]}
         price="по смете"
-        path="/montazh-otopleniya"
-        serviceName="Монтаж отопления"
-        serviceDescription="Проектирование, монтаж и модернизация систем отопления."
-        cards={[
-          {
-            title: 'Проект и логика системы',
-            text: 'Продумываем схему так, чтобы система была надёжной, удобной и обслуживаемой.'
-          },
-          {
-            title: 'Монтаж под ключ',
-            text: 'Выполняем установку оборудования, разводку и подключение основных узлов.'
-          },
-          {
-            title: 'Пуск и проверка',
-            text: 'Проверяем герметичность, корректность работы и готовность системы к эксплуатации.'
-          }
-        ]}
         faq={[
           {
             title: 'Делаете ли вы только монтаж новых систем?',
@@ -70,6 +55,20 @@ export default function MontazhOtopleniyaPage() {
           {
             title: 'Как рассчитывается стоимость?',
             text: 'После обсуждения задачи и оценки объёма работ готовится понятная смета.'
+          }
+        ]}
+        cards={[
+          {
+            title: 'Проект и логика системы',
+            text: 'Продумываем схему так, чтобы система была надёжной, удобной и обслуживаемой.'
+          },
+          {
+            title: 'Монтаж под ключ',
+            text: 'Выполняем установку оборудования, разводку и подключение основных узлов.'
+          },
+          {
+            title: 'Пуск и проверка',
+            text: 'Проверяем герметичность, корректность работы и готовность системы к эксплуатации.'
           }
         ]}
       />

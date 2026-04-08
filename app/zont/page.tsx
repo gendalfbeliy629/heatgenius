@@ -11,8 +11,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Автоматика ZONT',
-    description:
-      'Монтаж и настройка ZONT для удобного дистанционного управления котлом.',
+    description: 'Монтаж и настройка ZONT для удобного дистанционного управления котлом.',
     url: `${siteConfig.domain}/zont`
   }
 }
@@ -20,13 +19,16 @@ export const metadata: Metadata = {
 export default function ZontPage() {
   const jsonLd = buildServiceJsonLd(
     'Автоматика ZONT',
-    'Подбор, монтаж и запуск автоматики ZONT в Москве и Московской области.',
+    'Подбор, монтаж, запуск и настройка автоматики ZONT в Москве и Московской области.',
     '/zont'
   )
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ServicePageTemplate
         eyebrow="Автоматика ZONT"
         title="Монтаж и настройка автоматики ZONT"
@@ -37,23 +39,6 @@ export default function ZontPage() {
           'Настройка удалённого управления'
         ]}
         price="от 3 500 ₽"
-        path="/zont"
-        serviceName="Автоматика ZONT"
-        serviceDescription="Подбор, монтаж, запуск и настройка автоматики ZONT."
-        cards={[
-          {
-            title: 'Подбор решения',
-            text: 'Подбираем конфигурацию под ваш котёл, систему отопления и сценарии использования.'
-          },
-          {
-            title: 'Монтаж и настройка',
-            text: 'Аккуратно подключаем оборудование, запускаем и проверяем корректность работы.'
-          },
-          {
-            title: 'Обучение владельца',
-            text: 'Показываем, как пользоваться приложением, менять режимы и управлять температурой.'
-          }
-        ]}
         faq={[
           {
             title: 'Подходит ли ZONT для любого котла?',
@@ -70,6 +55,20 @@ export default function ZontPage() {
           {
             title: 'Объясняете, как пользоваться системой?',
             text: 'Да. После установки показываем основные функции и режимы.'
+          }
+        ]}
+        cards={[
+          {
+            title: 'Подбор решения',
+            text: 'Подбираем конфигурацию под ваш котёл, систему отопления и сценарии использования.'
+          },
+          {
+            title: 'Монтаж и настройка',
+            text: 'Аккуратно подключаем оборудование, запускаем и проверяем корректность работы.'
+          },
+          {
+            title: 'Обучение владельца',
+            text: 'Показываем, как пользоваться приложением, менять режимы и управлять температурой.'
           }
         ]}
       />

@@ -1,39 +1,16 @@
-'use client'
-
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import {
-  ArrowRight,
-  BadgeCheck,
-  Clock3,
-  Flame,
-  Phone,
-  ShieldCheck,
-  Sparkles,
-  Thermometer,
-  Wallet,
-  Wrench
-} from 'lucide-react'
 import { brands, siteConfig } from '@/lib/site'
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0 }
-}
 
 const problems = [
   {
-    icon: Thermometer,
     title: 'Котёл не греет',
     text: 'Оперативно находим причину: розжиг, датчики, насос, давление, автоматика, тяга.'
   },
   {
-    icon: Flame,
     title: 'Появляется ошибка на дисплее',
     text: 'Расшифровываем код ошибки, устраняем неисправность и проверяем стабильную работу после ремонта.'
   },
   {
-    icon: Wrench,
     title: 'Падает давление или течёт система',
     text: 'Диагностика гидравлики, расширительного бака, клапанов, теплообменника и соединений.'
   }
@@ -68,22 +45,18 @@ const services = [
 
 const advantages = [
   {
-    icon: Clock3,
     title: 'Выезд за 1–2 часа',
     text: 'Работаем без выходных по Москве и Московской области. Быстро выезжаем на срочные заявки.'
   },
   {
-    icon: BadgeCheck,
     title: '95% ремонтов за 1 визит',
     text: 'Опыт и типовые запчасти позволяют устранять большинство неисправностей сразу на месте.'
   },
   {
-    icon: ShieldCheck,
     title: 'Гарантия до 12 месяцев',
     text: 'После ремонта даём гарантию на выполненные работы и объясняем, как избежать повторной поломки.'
   },
   {
-    icon: Wallet,
     title: 'Цена понятна до начала работ',
     text: 'Сначала диагностика и согласование, потом ремонт. Без скрытых платежей и навязанных услуг.'
   }
@@ -146,19 +119,10 @@ export function LandingPage() {
     <main>
       <section className="hero">
         <div className="container">
-          <motion.div
-            className="hero__shell"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.55 }}
-          >
+          <div className="hero__shell">
             <div className="hero__grid">
               <div className="hero__content">
-                <div className="eyebrow">
-                  <Sparkles size={14} />
-                  Premium-сервис по отоплению
-                </div>
+                <div className="eyebrow">Premium-сервис по отоплению</div>
 
                 <h1 className="hero__title">
                   Ремонт котлов <span className="accent">за 1 визит</span>
@@ -170,23 +134,13 @@ export function LandingPage() {
                 </p>
 
                 <div className="hero-badges">
-                  <div className="hero-badge">
-                    <Clock3 size={16} />
-                    {siteConfig.schedule}
-                  </div>
-                  <div className="hero-badge">
-                    <BadgeCheck size={16} />
-                    95% ремонтов за один визит
-                  </div>
-                  <div className="hero-badge">
-                    <ShieldCheck size={16} />
-                    Гарантия до 12 месяцев
-                  </div>
+                  <div className="hero-badge">{siteConfig.schedule}</div>
+                  <div className="hero-badge">95% ремонтов за один визит</div>
+                  <div className="hero-badge">Гарантия до 12 месяцев</div>
                 </div>
 
                 <div className="hero-actions btn-row">
                   <a className="btn-primary" href={siteConfig.phoneHref}>
-                    <Phone size={18} />
                     Вызвать мастера
                   </a>
                   <a
@@ -205,83 +159,59 @@ export function LandingPage() {
               </div>
 
               <div className="hero__panel">
-                <motion.div
-                  className="card metrics-card"
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeUp}
-                  transition={{ duration: 0.55, delay: 0.08 }}
-                >
+                <div className="card metrics-card">
                   <h3>Почему выбирают HeatGenius</h3>
                   <ul className="metrics-list">
                     <li>
-                      <span className="icon-box">
-                        <Clock3 size={18} />
-                      </span>
+                      <span className="icon-box">01</span>
                       <div>
                         <span className="metric-number">1–2 часа</span>
                         <span className="metric-label">среднее время выезда мастера</span>
                       </div>
                     </li>
                     <li>
-                      <span className="icon-box">
-                        <BadgeCheck size={18} />
-                      </span>
+                      <span className="icon-box">02</span>
                       <div>
                         <span className="metric-number">9+ лет</span>
                         <span className="metric-label">практического опыта с котельным оборудованием</span>
                       </div>
                     </li>
                     <li>
-                      <span className="icon-box">
-                        <ShieldCheck size={18} />
-                      </span>
+                      <span className="icon-box">03</span>
                       <div>
                         <span className="metric-number">до 12 мес.</span>
                         <span className="metric-label">гарантия на выполненные работы</span>
                       </div>
                     </li>
                   </ul>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  className="card quote-card"
-                  initial="hidden"
-                  animate="visible"
-                  variants={fadeUp}
-                  transition={{ duration: 0.55, delay: 0.16 }}
-                >
+                <div className="card quote-card">
                   <h3>Что вы получаете</h3>
                   <ul className="offer-list">
                     <li>
-                      <span className="icon-box">
-                        <Wrench size={18} />
-                      </span>
+                      <span className="icon-box">✓</span>
                       <div className="muted">Точный поиск неисправности без гаданий и лишних замен.</div>
                     </li>
                     <li>
-                      <span className="icon-box">
-                        <Wallet size={18} />
-                      </span>
+                      <span className="icon-box">✓</span>
                       <div className="muted">Прозрачную стоимость до старта работ, а не “сюрприз” в конце.</div>
                     </li>
                     <li>
-                      <span className="icon-box">
-                        <ShieldCheck size={18} />
-                      </span>
+                      <span className="icon-box">✓</span>
                       <div className="muted">Понятную гарантию и рекомендации по дальнейшей эксплуатации.</div>
                     </li>
                   </ul>
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div>
             <div className="eyebrow">Частые проблемы</div>
             <h2 className="section-title">Когда нельзя откладывать вызов мастера</h2>
             <p className="section-subtitle">
@@ -289,36 +219,23 @@ export function LandingPage() {
               неподходящий момент. Мы быстро разбираемся, в чём причина, и устраняем её без лишней
               суеты.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-3 section-cards">
-            {problems.map((item, index) => {
-              const Icon = item.icon
-              return (
-                <motion.div
-                  key={item.title}
-                  className="card problem-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <span className="icon-box">
-                    <Icon size={20} />
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </motion.div>
-              )
-            })}
+            {problems.map((item) => (
+              <div key={item.title} className="card problem-card">
+                <span className="icon-box">!</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="section section-tight">
         <div className="container">
-          <motion.div className="card dark-panel" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div className="card dark-panel">
             <div className="eyebrow">Услуги</div>
             <h2 className="section-title">Все ключевые работы по отоплению в одном месте</h2>
             <p className="section-subtitle">
@@ -327,66 +244,43 @@ export function LandingPage() {
             </p>
 
             <div className="grid grid-2 section-cards">
-              {services.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="soft-card service-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <span className="icon-box">
-                    <Wrench size={20} />
-                  </span>
+              {services.map((item) => (
+                <div key={item.title} className="soft-card service-card">
+                  <span className="icon-box">→</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                   <div className="service-card__footer">
                     <span className="price-chip">{item.price}</span>
                     <Link href={item.href} className="btn-ghost">
-                      Подробнее <ArrowRight size={16} />
+                      Подробнее
                     </Link>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div>
             <div className="eyebrow">Преимущества</div>
             <h2 className="section-title">Сервис, который выглядит и работает на уровне топов</h2>
             <p className="section-subtitle">
               Не просто “починить котёл”, а дать спокойствие: быстро приехать, аккуратно разобраться,
               честно назвать цену и качественно довести работу до результата.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-4 section-cards">
-            {advantages.map((item, index) => {
-              const Icon = item.icon
-              return (
-                <motion.div
-                  key={item.title}
-                  className="card advantage-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <span className="icon-box">
-                    <Icon size={20} />
-                  </span>
-                  <h3>{item.title}</h3>
-                  <p>{item.text}</p>
-                </motion.div>
-              )
-            })}
+            {advantages.map((item) => (
+              <div key={item.title} className="card advantage-card">
+                <span className="icon-box">★</span>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </div>
+            ))}
           </div>
 
           <div className="brand-row">
@@ -401,29 +295,22 @@ export function LandingPage() {
 
       <section className="section section-tight">
         <div className="container">
-          <motion.div className="card dark-panel" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div className="card dark-panel">
             <div className="eyebrow">Как мы работаем</div>
             <h2 className="section-title">Понятный процесс без хаоса и лишних обещаний</h2>
+
             <div className="process-grid">
               {[
                 ['01', 'Заявка', 'Вы звоните или пишете в WhatsApp. Уточняем симптомы и договариваемся о выезде.'],
                 ['02', 'Диагностика', 'Мастер на месте проверяет систему, находит причину и объясняет, что именно сломалось.'],
                 ['03', 'Согласование', 'До начала ремонта вы понимаете стоимость, сроки и что будет сделано.'],
                 ['04', 'Результат', 'Ремонт, запуск, контрольная проверка и рекомендации по эксплуатации.']
-              ].map(([num, title, text], index) => (
-                <motion.div
-                  key={num}
-                  className="process-step"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
+              ].map(([num, title, text]) => (
+                <div key={num} className="process-step">
                   <div className="process-step__num">{num}</div>
                   <h3>{title}</h3>
                   <p>{text}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -443,41 +330,31 @@ export function LandingPage() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div>
             <div className="eyebrow">Кейсы</div>
             <h2 className="section-title">Типовые задачи, которые решаем каждый день</h2>
             <p className="section-subtitle">
               Не просто красивые слова, а реальные сценарии: ошибка розжига, утечка давления,
               нестабильный нагрев, проблемы с автоматикой и запуском.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-3 section-cards">
-            {cases.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="card case-card"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
-                <span className="icon-box">
-                  <BadgeCheck size={20} />
-                </span>
+            {cases.map((item) => (
+              <div key={item.title} className="card case-card">
+                <span className="icon-box">✓</span>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
                 <div className="case-card__footer">
                   <span className="muted">{item.footer}</span>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -485,54 +362,36 @@ export function LandingPage() {
 
       <section className="section section-tight">
         <div className="container">
-          <motion.div className="card dark-panel" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div className="card dark-panel">
             <div className="eyebrow">Отзывы</div>
             <h2 className="section-title">Почему нас рекомендуют дальше</h2>
 
             <div className="grid grid-3 section-cards">
-              {reviews.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  className="soft-card review-card"
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.2 }}
-                  variants={fadeUp}
-                  transition={{ duration: 0.4, delay: index * 0.08 }}
-                >
-                  <span className="icon-box">
-                    <Sparkles size={20} />
-                  </span>
+              {reviews.map((item) => (
+                <div key={item.title} className="soft-card review-card">
+                  <span className="icon-box">★</span>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45 }}>
+          <div>
             <div className="eyebrow">FAQ</div>
             <h2 className="section-title">Частые вопросы</h2>
-          </motion.div>
+          </div>
 
           <div className="grid grid-2 section-cards">
-            {faq.map((item, index) => (
-              <motion.div
-                key={item.title}
-                className="card faq-card"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeUp}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-              >
+            {faq.map((item) => (
+              <div key={item.title} className="card faq-card">
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

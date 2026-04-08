@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { Clock3, MapPin, Phone, Send, ShieldCheck } from 'lucide-react'
 import { siteConfig } from '@/lib/site'
 
 export const metadata: Metadata = {
@@ -25,7 +24,6 @@ export default function ContactsPage() {
 
             <div className="btn-row" style={{ marginTop: 26 }}>
               <a className="btn-primary" href={siteConfig.phoneHref}>
-                <Phone size={18} />
                 {siteConfig.phoneDisplay}
               </a>
               <a
@@ -47,11 +45,10 @@ export default function ContactsPage() {
             <div className="card contact-card">
               <div className="eyebrow">Как связаться</div>
               <h2 className="section-title">Контактная информация</h2>
+
               <ul className="contact-list">
                 <li>
-                  <span className="icon-box">
-                    <Phone size={18} />
-                  </span>
+                  <span className="icon-box">01</span>
                   <div>
                     <h3 style={{ margin: 0, fontSize: 18 }}>Телефон</h3>
                     <p style={{ marginTop: 6 }}>
@@ -61,9 +58,7 @@ export default function ContactsPage() {
                 </li>
 
                 <li>
-                  <span className="icon-box">
-                    <Send size={18} />
-                  </span>
+                  <span className="icon-box">02</span>
                   <div>
                     <h3 style={{ margin: 0, fontSize: 18 }}>WhatsApp</h3>
                     <p style={{ marginTop: 6 }}>
@@ -75,9 +70,7 @@ export default function ContactsPage() {
                 </li>
 
                 <li>
-                  <span className="icon-box">
-                    <MapPin size={18} />
-                  </span>
+                  <span className="icon-box">03</span>
                   <div>
                     <h3 style={{ margin: 0, fontSize: 18 }}>Зона работы</h3>
                     <p style={{ marginTop: 6 }}>{siteConfig.city}</p>
@@ -85,9 +78,7 @@ export default function ContactsPage() {
                 </li>
 
                 <li>
-                  <span className="icon-box">
-                    <Clock3 size={18} />
-                  </span>
+                  <span className="icon-box">04</span>
                   <div>
                     <h3 style={{ margin: 0, fontSize: 18 }}>График</h3>
                     <p style={{ marginTop: 6 }}>{siteConfig.schedule}</p>
@@ -142,7 +133,6 @@ export default function ContactsPage() {
                 </p>
 
                 <div className="hero-badge" style={{ marginTop: 14 }}>
-                  <ShieldCheck size={16} />
                   Ответим и сориентируем по выезду
                 </div>
               </form>
