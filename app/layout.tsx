@@ -1,32 +1,66 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin', 'cyrillic'],
-  display: 'swap'
-});
+import type { Metadata } from 'next'
+import './globals.css'
+import { siteConfig, buildLocalBusinessJsonLd } from '@/lib/site'
+import { SiteHeader } from '@/components/site-header'
+import { SiteFooter } from '@/components/site-footer'
 
 export const metadata: Metadata = {
-  title: 'HeatGenius — ремонт и обслуживание котлов в Москве и области',
-  description:
-    'Ремонт, обслуживание, автоматика ZONT, проектирование и монтаж систем отопления. Выезд мастера за 1–2 часа по Москве и Московской области.',
-  metadataBase: new URL('https://heatgenius.ru'),
+  metadataBase: new URL(siteConfig.domain),
+  title: {
+    default: 'HeatGenius — ремонт и обслуживание котлов в Москве и МО',
+    template: '%s | HeatGenius'
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  applicationName: siteConfig.name,
+  alternates: {
+    canonical: '/'
+  },
   openGraph: {
-    title: 'HeatGenius — ремонт и обслуживание котлов',
-    description:
-      'Выезд мастера за 1–2 часа. Диагностика, ремонт, обслуживание, ZONT, проектирование и монтаж.',
-    url: 'https://heatgenius.ru',
-    siteName: 'HeatGenius',
-    locale: 'ru_RU',
-    type: 'website'
+    type: 'website',
+    url: siteConfig.domain,
+    title: 'HeatGenius — ремонт и обслуживание котлов в Москве и МО',
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    locale: 'ru_RU'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HeatGenius — ремонт и обслуживание котлов в Москве и МО',
+    description: siteConfig.description
   }
-};
+}
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  const jsonLd = buildLocalBusinessJsonLd()
+
   return (
     <html lang="ru">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <a className="floating-call" href={siteConfig.phoneHref} aria-label="Позвонить">
+          Позвонить
+        </a>
+        <a
+          className="floating-wa"
+          href={siteConfig.whatsappHref}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Написать в WhatsApp"
+        >
+          WhatsApp
+        </a>
+      </body>
     </html>
-  );
+  )
 }
